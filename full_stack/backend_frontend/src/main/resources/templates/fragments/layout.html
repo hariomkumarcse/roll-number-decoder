@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<!-- ============ NAVBAR FRAGMENT ============ -->
+<header th:fragment="navbar" class="navbar">
+    <div class="navbar__inner">
+        <a class="navbar__brand" th:href="@{/}">
+            <span class="navbar__seal">MIT&nbsp;Meerut</span>
+            <span class="navbar__title">Roll Number Decoder</span>
+        </a>
+        <nav class="navbar__links">
+            <a class="navbar__link"
+               th:classappend="${activePage == 'home'} ? 'navbar__link--active'"
+               th:href="@{/}">Home</a>
+            <a class="navbar__link"
+               th:classappend="${activePage == 'about'} ? 'navbar__link--active'"
+               th:href="@{/about}">About</a>
+            <a class="navbar__link" href="https://github.com/hariomkumarcse/roll-number-decoder"
+               target="_blank" rel="noopener">GitHub</a>
+        </nav>
+    </div>
+</header>
+
+<!-- ============ FOOTER FRAGMENT ============ -->
+<footer th:fragment="footer" class="footer">
+    <div class="footer__inner">
+        <div class="footer__col">
+            <p class="footer__heading">Roll Number Decoder</p>
+            <p class="footer__text">A learning project migrating from Core Java to a full-stack
+                Spring Boot application — decoding structured college roll numbers into
+                admission year, college, branch and serial.</p>
+        </div>
+        <div class="footer__col">
+            <p class="footer__heading">Tech stack</p>
+            <ul class="footer__list">
+                <li>Java 17 · Spring Boot</li>
+                <li>Thymeleaf · HTML5 · CSS3</li>
+                <li>Spring Data JPA · MySQL</li>
+            </ul>
+        </div>
+        <div class="footer__col">
+            <p class="footer__heading">Links</p>
+            <ul class="footer__list">
+                <li><a th:href="@{/}">Home</a></li>
+                <li><a th:href="@{/about}">About</a></li>
+                <li><a href="https://github.com/hariomkumarcse/roll-number-decoder" target="_blank" rel="noopener">GitHub Repository</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer__bottom">
+        <p>&copy; 2026 Hariom Kumar — built for educational and portfolio purposes.</p>
+    </div>
+</footer>
+
+</body>
+</html>

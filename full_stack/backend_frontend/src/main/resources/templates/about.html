@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — Roll Number Decoder</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div th:replace="~{fragments/layout :: navbar}"></div>
+
+<main class="page">
+
+    <section class="hero">
+        <h1 class="hero__title">About this project</h1>
+    </section>
+
+    <section class="sheet about">
+        <p>Many colleges encode meaningful information directly inside a student's
+            roll number — the year they were admitted, which institution and branch
+            they belong to, and their sequence within that batch.</p>
+
+        <p><strong>Roll Number Decoder</strong> takes a 13-digit roll number and breaks it
+            into those four parts:</p>
+
+        <table class="mark-table">
+            <tbody>
+            <tr><th>Digits 1–2</th><td>Academic year</td></tr>
+            <tr><th>Digits 3–6</th><td>College code</td></tr>
+            <tr><th>Digits 7–9</th><td>Branch code</td></tr>
+            <tr><th>Digits 10–13</th><td>Serial number</td></tr>
+            </tbody>
+        </table>
+
+        <p>This project started as a plain Core Java command-line program and is being
+            rebuilt step by step into a full-stack Spring Boot application, as a
+            hands-on way to practice REST APIs, JPA/MySQL persistence, and
+            server-rendered Thymeleaf pages.</p>
+
+        <a class="back-link" th:href="@{/}">&larr; Back to the decoder</a>
+    </section>
+
+</main>
+
+<div th:replace="~{fragments/layout :: footer}"></div>
+
+</body>
+</html>

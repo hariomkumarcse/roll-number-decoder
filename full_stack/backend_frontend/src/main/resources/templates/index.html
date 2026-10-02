@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roll Number Decoder</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div th:replace="~{fragments/layout :: navbar}"></div>
+
+<main class="page">
+
+    <section class="hero">
+        <h1 class="hero__title">Roll Number Decoder</h1>
+        <p class="hero__subtitle">Enter a 13-digit roll number to reveal the admission year, college, branch and serial it encodes.</p>
+    </section>
+
+    <section class="sheet">
+
+        <form class="decode-form" th:action="@{/decode}" method="post">
+            <label class="decode-form__label" for="rollNumber">Roll number</label>
+            <input
+                    class="decode-form__input"
+                    type="text"
+                    id="rollNumber"
+                    name="rollNumber"
+                    maxlength="13"
+                    inputmode="numeric"
+                    autocomplete="off"
+                    placeholder="2402920100075"
+                    th:value="${submittedValue}"
+                    required
+            >
+            <p class="decode-form__hint">YY&nbsp;·&nbsp;CCCC&nbsp;·&nbsp;BBB&nbsp;·&nbsp;SSSS — year, college, branch, serial</p>
+
+            <p class="decode-form__error" th:if="${errorMessage != null}" th:text="${errorMessage}"></p>
+
+            <button class="decode-form__submit" type="submit">Decode</button>
+        </form>
+
+        <section class="history" th:if="${recentSearches != null and !recentSearches.isEmpty()}">
+            <h2 class="history__title">Recently decoded</h2>
+            <ul class="history__list">
+                <li class="history__item" th:each="log : ${recentSearches}">
+                    <span class="history__roll" th:text="${log.rollNumber}">2402920100075</span>
+                    <span class="history__status"
+                          th:classappend="${log.successful} ? 'status--ok' : 'status--fail'"
+                          th:text="${log.successful} ? 'decoded' : 'invalid'">decoded</span>
+                </li>
+            </ul>
+        </section>
+
+    </section>
+
+</main>
+
+<div th:replace="~{fragments/layout :: footer}"></div>
+
+</body>
+</html>
