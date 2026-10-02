@@ -2,6 +2,8 @@
 
 > A full-stack application that decodes structured college roll numbers and extracts meaningful academic information such as admission year, college, branch, and other encoded details.
 
+>Now the project is live url:- https://roll-number-decoder-production.up.railway.app/
+
 [![Java](https://img.shields.io/badge/Java-17%2B-orange)](https://www.oracle.com/java/)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-Backend-brightgreen)](https://spring.io/projects/spring-boot)
 [![Maven](https://img.shields.io/badge/Maven-Build-red)](https://maven.apache.org/)
